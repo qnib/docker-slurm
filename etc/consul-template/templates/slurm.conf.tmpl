@@ -54,4 +54,4 @@ NodeName={{.Node}} NodeAddr={{.Address}}{{end}}
 
 # Create list
 #PartitionName=docker Nodes=localhost Default=YES MaxTime=INFINITE State=UP
-PartitionName=qnib Nodes={{range $i, $e := service "slurmd"}}{{if ne $i 0}},{{end}}{{$e.Node}}{{end}} Default=YES MaxTime=INFINITE State=UP
+PartitionName=qnib Nodes={{range $i, $e := service "slurmd" "any"}}{{if ne $i 0}},{{end}}{{$e.Node}}{{end}} Default=YES MaxTime=INFINITE State=UP
