@@ -15,4 +15,5 @@ RUN yum install -y git-core make golang && cd /tmp/ && \
     mv /tmp/consul-template/bin/consul-template /usr/local/bin/ && \
     rm -rf /tmp/consul-template
 ADD etc/consul-template/templates/slurm.conf.tmpl /etc/consul-template/templates/
+ADD usr/local/etc/slurm.conf /usr/local/etc/slurm.conf
 ENV LD_LIBRARY_PATH=/usr/local/lib/
