@@ -1,0 +1,9 @@
+{
+  "service": {
+    "name": "munged",
+    "check": {
+      "script": "supervisorctl status munged|grep RUNNING",
+      "interval": "10s"
+    }
+  }
+}

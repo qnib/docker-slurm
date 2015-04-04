@@ -1,0 +1,21 @@
+consul:
+    image: qnib/consul
+    ports:
+     - "8500:8500"
+    environment:
+    - DC_NAME=dc1
+    - ENABLE_SYSLOG=true
+    dns: 127.0.0.1
+    hostname: consul
+    privileged: true
+
+slurm:
+    image: qnib/slurm
+    links:
+    - consul:consul
+    environment:
+    - DC_NAME=dc1
+    - ENABLE_SYSLOG=true
+    dns: 127.0.0.1
+    hostname: slurm
+    privileged: true
