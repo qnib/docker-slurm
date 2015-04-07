@@ -6,3 +6,4 @@ fi
 if [ -f /var/run/slurmd.pid ];then
     kill -SIGHUP $(cat /var/run/slurmd.pid)
 fi
+sleep 5
