@@ -15,3 +15,6 @@ ADD opt/qnib/bin/usersetup.sh /opt/qnib/bin/
 ADD etc/consul-template/templates/slurm.conf.tmpl /etc/consul-template/templates/
 ADD usr/local/etc/slurm.conf /usr/local/etc/slurm.conf
 ENV LD_LIBRARY_PATH=/usr/local/lib/
+# Setup slurm (soft) restart, if cluster size changes
+ADD opt/qnib/bin/slurm_reread.sh /opt/qnib/bin/
+ADD etc/supervisord.d/slurm_update.ini /etc/supervisord.d/
