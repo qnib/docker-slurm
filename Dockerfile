@@ -2,7 +2,7 @@
 FROM qnib/terminal
 MAINTAINER "Christian Kniep <christian@qnib.org>"
 
-RUN yum install -y slurm
+RUN echo "2015-04-12";yum --disablerepo=* --enablerepo=qnib-* clean all;yum install -y slurm
 ADD etc/supervisord.d/munged.ini /etc/supervisord.d/
 ADD etc/consul.d/check_munged.json /etc/consul.d/
 ## User slurm
