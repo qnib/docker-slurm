@@ -80,7 +80,4 @@ EOF
     chown cluser: /chome/cluser/.ssh/id_rsa
 fi
     
-
-
-
-
+echo "domain node.consul" >> /etc/resolv.conf
