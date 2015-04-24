@@ -9,7 +9,7 @@
 # See the slurm.conf man page for more information.
 #
 #ClusterName={{key "slurm/clustername"}}
-ClusterName=qnib
+ClusterName=QNIBTerminal
 {{range service "slurmctld" "any"}}
 ControlMachine={{.Name}}
 ControlAddr={{.Address}}{{end}}
@@ -39,7 +39,7 @@ EpilogSlurmctld=/opt/qnib/slurm/bin/epilog.sh
 SlurmctldTimeout=300
 SlurmdTimeout=300
 InactiveLimit=0
-MinJobAge=300
+MinJobAge=30
 KillWait=30
 Waittime=0
 
