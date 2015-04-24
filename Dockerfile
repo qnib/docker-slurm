@@ -7,10 +7,18 @@ ADD etc/supervisord.d/munged.ini /etc/supervisord.d/
 ADD etc/consul.d/check_munged.json /etc/consul.d/
 ## User slurm
 RUN useradd -u 2001 -d /home/slurm slurm
-## Cluster user 'cluser'
-RUN useradd -u 3000 -d /chome/cluser -M cluser
-ADD etc/supervisord.d/usersetup.ini etc/supervisord.d/usersetup.ini
-ADD opt/qnib/bin/usersetup.sh /opt/qnib/bin/
+## Cluster users
+RUN groupadd -g 3000 clusers && \
+    useradd -u 3001 -G clusers -d /home/alice -m alice && \
+    useradd -u 3002 -G clusers -d /home/bob -m bob && \
+    useradd -u 3003 -G clusers -d /home/carol -m carol && \
+    useradd -u 3004 -G clusers -d /home/dave -m dave && \
+    useradd -u 3005 -G clusers -d /home/eve -m eve
+ADD home/ /tmp/home/
+RUN /tmp/home/usersetup.sh alice bob carol dave eve && rm -rf /tmp/home 
+
+#ADD etc/supervisord.d/usersetup.ini etc/supervisord.d/usersetup.ini
+#ADD opt/qnib/bin/usersetup.sh /opt/qnib/bin/
 ## install consul-template
 ADD etc/consul-template/templates/slurm.conf.tmpl /etc/consul-template/templates/
 ADD usr/local/etc/slurm.conf /usr/local/etc/slurm.conf
