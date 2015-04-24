@@ -20,8 +20,6 @@ RUN groupadd -g 3000 clusers && \
 ADD home/ /tmp/home/
 RUN /tmp/home/usersetup.sh alice bob carol dave eve john jane && rm -rf /tmp/home 
 
-ADD etc/supervisord.d/scratchsetup.ini etc/supervisord.d/scratchsetup.ini
-ADD opt/qnib/bin/scratchsetup.sh /opt/qnib/bin/
 ## install consul-template
 ADD etc/consul-template/templates/slurm.conf.tmpl /etc/consul-template/templates/
 ADD usr/local/etc/slurm.conf /usr/local/etc/slurm.conf
