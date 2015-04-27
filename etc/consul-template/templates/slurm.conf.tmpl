@@ -53,6 +53,6 @@ FastSchedule=0
 NodeName={{.Node}} NodeAddr={{.Address}}{{end}}
 
 # Create list
-PartitionName=all Nodes={{range $i, $e := service "slurmd" "any"}}{{if ne $i 0}},{{end}}{{$e.Node}}{end}} Default=YES MaxTime=INFINITE State=UP
+PartitionName=all Nodes={{range $i, $e := service "slurmd" "any"}}{{if ne $i 0}},{{end}}{{$e.Node}}{{end}} Default=YES MaxTime=INFINITE State=UP
 PartitionName=odd Nodes={{range $i, $e := service "slurmd" "any"}}{{if $e.Node| regexMatch ".*(1|3|5|7|9|a|c|e)$"}}{{if ne $i 0}},{{end}}{{$e.Node}}{{end}}{{end}} Default=NO MaxTime=INFINITE State=UP
 PartitionName=even Nodes={{range $i, $e := service "slurmd" "any"}}{{if $e.Node| regexMatch ".*(2|4|6|8|0|b|d|f)$"}}{{if ne $i 0}},{{end}}{{$e.Node}}{{end}}{{end}} Default=NO MaxTime=INFINITE State=UP
