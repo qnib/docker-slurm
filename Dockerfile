@@ -2,6 +2,7 @@
 FROM qnib/terminal
 MAINTAINER "Christian Kniep <christian@qnib.org>"
 
+ADD etc/yum.repos.d/qnib.repo /etc/yum.repos.d/
 RUN echo "2015-04-12";yum --disablerepo=* --enablerepo=qnib-* clean all;yum install -y slurm
 ADD etc/supervisord.d/munged.ini /etc/supervisord.d/
 ADD etc/consul.d/check_munged.json /etc/consul.d/
