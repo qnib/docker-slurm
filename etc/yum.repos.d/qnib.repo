@@ -1,0 +1,20 @@
+[qnib-common]
+name=QNIBInc Common Repository
+failovermethod=priority
+baseurl=http://smith.rmz.uni-lueneburg.de/repo/rhel/7/common/
+enabled=1
+gpgcheck=0
+
+[qnib-rubygem]
+name=QNIBInc Rubygem Repository
+failovermethod=priority
+baseurl=http://smith.rmz.uni-lueneburg.de/repo/rhel/7/rubygem/
+enabled=1
+gpgcheck=0
+
+[qnib-pip]
+name=QNIBInc PIP Repository
+failovermethod=priority
+baseurl=http://smith.rmz.uni-lueneburg.de/repo/rhel/7/pip/
+enabled=1
+gpgcheck=0
