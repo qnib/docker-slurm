@@ -17,3 +17,5 @@ ENV LD_LIBRARY_PATH=/usr/local/lib/
 # Setup slurm (soft) restart, if cluster size changes
 ADD opt/qnib/bin/slurm_reread.sh /opt/qnib/bin/
 ADD etc/supervisord.d/slurm_update.ini /etc/supervisord.d/
+ADD etc/munge/munge.key /etc/munge/
+RUN chown root: /var/log/munge/ /run/munge /var/lib/munge /etc/munge
