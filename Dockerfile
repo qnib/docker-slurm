@@ -1,7 +1,7 @@
 ###### QNIBng image
 FROM qnib/cluster
 
-RUN yum install -y bzip2 make gcc munge-libs munge-devel lua-devel && \
+RUN yum install -y bzip2 make gcc munge-libs munge-devel munge lua-devel && \
     curl -fsL http://www.schedmd.com/download/total/slurm-15.08.3.tar.bz2 | tar xfj - -C /opt/ && \
     cd /opt/slurm-15.08.3/ && \
     ./configure && make && make install
