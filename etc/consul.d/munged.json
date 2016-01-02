@@ -2,7 +2,7 @@
   "service": {
     "name": "munged",
     "check": {
-      "script": "supervisorctl status munged|grep RUNNING",
+      "script": "/opt/qnib/munge/bin/check.sh",
       "interval": "10s"
     }
   }
