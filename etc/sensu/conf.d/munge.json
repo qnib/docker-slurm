@@ -1,0 +1,9 @@
+{
+  "checks": {
+    "munge": {
+      "command": "/opt/qnib/munge/bin/check.sh",
+      "standalone": true,
+      "interval": 10
+    }
+  }
+}
