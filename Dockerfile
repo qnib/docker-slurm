@@ -21,3 +21,4 @@ ADD etc/munge/munge.key /etc/munge/
 RUN chmod 600 /etc/munge/munge.key && \
     chown root: /var/log/munge/ /run/munge /var/lib/munge /etc/munge
 ADD opt/qnib/munge/bin/check.sh /opt/qnib/munge/bin/
+ADD etc/sensu/conf.d/munge.json /etc/sensu/conf.d/
