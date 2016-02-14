@@ -1,9 +1,10 @@
 ###### QNIBng image
 FROM qnib/terminal
 
-RUN yum install -y bzip2 make gcc munge-libs munge-devel munge lua-devel && \
-    curl -fsL http://www.schedmd.com/download/total/slurm-15.08.3.tar.bz2 | tar xfj - -C /opt/ && \
-    cd /opt/slurm-15.08.3/ && \
+ENV SLURM_VER=15.08.7
+RUN dnf install -y bzip2 make gcc munge-libs munge-devel munge lua-devel && \
+    curl -fsL http://www.schedmd.com/download/total/slurm-${SLURM_VER}.tar.bz2 | tar xfj - -C /opt/ && \
+    cd /opt/slurm-${SLURM_VER}/ && \
     ./configure && make && make install
 ADD etc/supervisord.d/munged.ini /etc/supervisord.d/
 ADD etc/consul.d/munged.json /etc/consul.d/
