@@ -1,7 +1,7 @@
 ###### QNIBng image
 FROM qnib/terminal
 
-ENV SLURM_VER=15.08.7
+ENV SLURM_VER=15.08.9
 RUN dnf install -y bzip2 make gcc munge-libs munge-devel munge lua-devel && \
     curl -fsL http://www.schedmd.com/download/total/slurm-${SLURM_VER}.tar.bz2 | tar xfj - -C /opt/ && \
     cd /opt/slurm-${SLURM_VER}/ && \
